@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pattern Project Scrunchie Demo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;900&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/site.css" />
+        <script
+              src="https://code.jquery.com/jquery-3.6.0.min.js"
+              integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+              crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div id="content" class="container">
+            <div class="row">
+                <div class="col-12 brand_box">
+                    <img id="store_logo" src="{% static 'main/images/logo.webp' %}">
+                </div>
+            </div>
+            <div class="row">
+                <div id="product" class="col-sm-6 offset-sm-3">
+                    <div>
+                        <h2 class="producttitle">Good Squish</h2>
+                    </div>
+                    <div id="photogallery">
+                        <img src="https://via.placeholder.com/600" height="330px" />
+                    </div>
+                    <p id="description"></p>
+                    <p class="subtitle">Price</p>
+                    <p id="price"></p>
+                    <p class="subtitle">Options</p>
+                    <div id="productoptions">
+                    </div>
+                    <div id="orderbutton">
+                        <button id="buybutton" class="btn pattern_button">BUY</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            let product = {
+                'title': 'Good Squish Scrunchie',
+                'id': 'scrunch',
+                'description': 'GOOD SQUISH, MORE THAN JUST A SQUISH BUT ALSO A FRIEND AND A PILLOW.',
+                'photos': ['scrunchie_drawing.svg'],
+                'phototype': 'colour',
+                'price': '45',
+                'options': [{
+                    'key': 'Inner Colour',
+                    'type': 'selectcolour',
+                    'colourkey':'Main',
+                    'values': [
+                        { 'text': 'Pink', 'value': 'pink', 'photo': '', 'price': 0, 'hex': '#FF0266'},
+                        {'text': 'Yellow', 'value': 'yellow', 'photo': '', 'price': 0, 'hex': '#FFDE03'},
+                        {'text': 'Blue', 'value': 'blue', 'photo': '', 'price': 0, 'hex': '#2979FF'},
+                        {'text': 'Black', 'value': 'black', 'photo': '', 'price': 0, 'hex': '#000000'}
+                    ]
+                },{
+                    'key': 'Outer Colour',
+                    'type': 'selectcolour',
+                    'colourkey':'Inner_Contrast',
+                    'values': [
+                        {'text': 'Pink', 'value': 'pink', 'photo': '', 'price': 0, 'hex': '#FF0266'},
+                        {'text': 'Yellow', 'value': 'yellow', 'photo': '', 'price': 0, 'hex': '#FFDE03'},
+                        {'text': 'Blue', 'value': 'blue', 'photo': '', 'price': 0, 'hex': '#2979FF'},
+                        {'text': 'White lace', 'value': 'white_lace', 'photo': '', 'price': 5, 'hex': '#eeeeee'},
+                        {'text': 'Black', 'value': 'black', 'photo': '', 'price': 0, 'hex': '#000000'}
+                    ]
+                },{
+                    'key': 'Outer Contrast',
+                    'type': 'selectcolour',
+                    'colourkey':'Outer_Contrast',
+                    'values': [
+                        {'text': 'Pink', 'value': 'pink', 'photo': '', 'price': 0, 'hex': '#FF0266'},
+                        {'text': 'Yellow', 'value': 'yellow', 'photo': '', 'price': 0, 'hex': '#FFDE03'},
+                        {'text': 'Blue', 'value': 'blue', 'photo': '', 'price': 0, 'hex': '#2979FF'},
+                        {'text': 'White lace', 'value': 'white_lace', 'photo': '', 'price': 5, 'hex': '#eeeeee'},
+                        {'text': 'Black', 'value': 'black', 'photo': '', 'price': 0, 'hex': '#000000'}
+                    ]
+                }]
+            };
+            let photoURL = 'images/xxx';
+            let orderURL = '/createorder'
+            let trackURL = '/track';
+            let choices = {};
+
+            function order(product){
+                let data = {}
+                data.product = JSON.stringify(getProductChoices(product));
+                console.log(getProductChoices(product));
+                $.ajax({
+                    url: orderURL,
+                    data:data,
+                    type:'Post',
+                    success: function(result){
+                        window.location.href = trackURL.replace('999',result.orderID);
+                    },
+                    error: function(error){
+                        $('#orderbutton').removeClass('loader');
+                        $('#orderbutton').html('<p>Item is not connected to store.</p>');
+                    }
+                });
+            }
+        </script>
+        <script src="js/product.js"></script>
+    </body>
+</html>

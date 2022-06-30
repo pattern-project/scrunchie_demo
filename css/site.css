@@ -1,0 +1,250 @@
+:root {
+  --primary1: rgb(0, 8, 85);
+  --secondary: #FBF5BB;
+  --grey: #aaa;
+}
+
+body {
+	background-color:#FFF;
+	font-family: 'Roboto', sans-serif;
+	color:var(--primary1);
+}
+
+p {
+	font-size:1rem;
+}
+
+.brand_box {
+	height:80px;
+	display: flex;
+	align-items: center;
+}
+
+#brand_logo {
+	height:60px;
+}
+
+.pattern_button {
+	background-color:var(--primary1);
+	color:#fff;
+	min-width:200px;
+}
+
+.pattern_button:hover {
+	color:#fff;
+}
+
+.button_box {
+	height:100px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+/* admin server */
+
+.ordertitle {
+	font-size:1.4em;
+}
+
+.order {
+	margin-top:15px;
+	margin-bottom:15px;
+	border-bottom:#ccc 1px solid;
+}
+
+.progresstitle {
+	font-weight: 800;
+}
+
+#title {
+	padding-left:15px;
+}
+
+.selectlabel {
+	font-size:1.25rem;
+	margin-bottom:0px;
+	text-transform: uppercase;
+}
+
+#price {
+	font-size:1.25rem;
+}
+
+.optionselect {
+	margin-bottom:30px;
+}
+
+#product {
+	margin-bottom:30px;
+}
+
+.measure {
+	margin-bottom:30px;
+}
+
+.measurevalue {
+	padding-right:15px;
+	font-size:1.25rem;
+}
+
+.loader {
+  border: 4px solid var(--grey);
+  border-top: 4px solid var(--primary1);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* track page */
+
+#orderid {
+	background-color:var(--primary1);
+	width:50%;
+	margin-left:25%;
+	height:120px;
+}
+
+.orderidnumber {
+	color:#FFF;
+	font-size:1.953rem;
+}
+
+#track_status{
+	margin-top:30px;
+	font-size:1.25rem;
+	border-bottom: 1px solid var(--grey);
+}
+
+
+#track_status p {
+	font-size:1.25rem;
+}
+
+.smalltitle {
+	font-weight:600;
+}
+
+#order_summary{
+	margin-top:30px;
+	font-size:1.25rem;
+}
+
+#order_summary p {
+	font-size:1rem;
+}
+
+#instructions {
+	font-size:1rem!important;
+}
+
+#modal2 {
+	display:hidden;
+}
+
+#modal2footer {
+	display:hidden;
+}
+
+.productionsheet_variant {
+	font-size:1.563rem;
+	margin-bottom:0px;
+}
+
+.productionsheet_date {
+	font-size:1.563rem;
+	margin-bottom:15px;
+}
+
+.productionbox {
+	border: 1px solid #000;
+	padding-bottom:30px;
+	margin-bottom:15px;
+}
+
+.piecestable {
+	width:100%;
+	font-size:1.6rem;
+	border: 1px solid #aaa;
+	margin-top:15px;
+}
+
+.piecestable td {
+	border: 1px solid #aaa;
+	padding-left:15px;
+}
+
+#store_logo {
+	  margin-left: auto;
+	  margin-right: auto;
+	  display: block;
+      width:80px;
+}
+
+.imagebuttonactive {
+	border: 4px solid #0000FF;
+}
+
+.optionImageButton {
+	margin:10px;
+}
+
+.optionColourButton {
+	height:50px;
+	width:50px;
+	border-radius:25px;
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.stackimage {
+  position: absolute;
+  left: 0px;
+}
+
+.producttitle {
+	text-align:center;
+	margin-top:30px;
+	font-size:1.563rem;
+	text-transform: uppercase;
+}
+
+.subtitle {
+	font-size:1.563rem;
+	border-bottom:solid 1px var(--grey);
+	text-transform: uppercase;
+}
+
+.instruction {
+	font-size:1.563rem;
+	text-transform: uppercase;
+	text-align:center;
+	margin-top:60px;
+}
+
+.option {
+	border-bottom:solid 1px var(--grey);
+	margin-top:15px;
+}
+
+.optionselect {
+	padding-bottom:15px;
+}
+
+select {
+	margin-top:15px;
+}
+
+#description {
+	font-size:1.25rem;
+}
+
+.slider {
+	width:80%;
+}
